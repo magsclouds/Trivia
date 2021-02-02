@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+
+        <script>
+
+            // check if all contect lodaed
+            document.addEventListener('DOMContentLoaded', function() {
+
+                // check for correct click on the button
+                let correct = document.querySelector('.correct');
+                correct.addEventListener('click', function() {
+                    correct.style.backgroundColor = 'green';
+                    document.querySelector('#feedback1').innerHTML = 'Correct'
+                });
+
+                let wrong = document.querySelectorAll('.wrong');
+                for (let i = 0; i < wrong.length; i++) {
+                    wrong[i].addEventListener('click', function() {
+                        wrong[i].style.backgroundColor = 'red';
+                        document.querySelector('#feedback1').innerHTML = 'Incorrect'
+                    });
+                }
+
+                // free response answer
+                document.querySelector('#check').addEventListener('click', function () {
+                    let input = document.querySelector('input');
+                    if (input.value === 'Odin') {
+                        input.style.backgroundColor = 'green';
+                        document.querySelector('#feedback2').innerHTML = 'Correct'
+                    } else {
+                        input.style.backgroundColor = 'red';
+                        document.querySelector('#feedback2').innerHTML = 'Incorrect';
+                    }
+                });
+
+
+            });
+
+        </script>
+
+    </head>
+    <title>Trivia</title>
+    <body>
+
+        <div class="jumbotron">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <h3>What is Thor's favourite toy?</h3>
+
+                <button class="wrong">Axe</button>
+                <button class="correct">Hammer</button>
+                <button class="wrong">Sword</button>
+                <button class="wrong">Stick</button>
+                <button class="wrong">Horn</button>
+
+                <p id="feedback1"></p>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <h3>Who is Thor's Father</h3>
+
+                <input type="text"></input>
+                <button id="check">submit</button>
+
+                <p id="feedback2"></p>
+
+            </div>
+
+        </div>
+    </body>
+</html>

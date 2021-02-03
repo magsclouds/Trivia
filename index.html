@@ -8,21 +8,24 @@
 
         <script>
 
+            // TODO change feedback to show on the side
+
             // check if all contect lodaed
             document.addEventListener('DOMContentLoaded', function() {
 
-                // check for correct click on the button
-                let correct = document.querySelector('.correct');
-                correct.addEventListener('click', function() {
-                    correct.style.backgroundColor = 'green';
-                    document.querySelector('#feedback1').innerHTML = 'Correct'
-                });
+                let correct = document.querySelectorAll('.correct');
+                for (let i = 0; i < correct.length; i++) {
+                    correct[i].addEventListener('click', function () {
+                        correct[i].style.backgroundColor = 'green';
+                        document.querySelector('#feedback1').innerHTML = 'CORRECT!'
+                    });
+                }
 
                 let wrong = document.querySelectorAll('.wrong');
                 for (let i = 0; i < wrong.length; i++) {
                     wrong[i].addEventListener('click', function() {
                         wrong[i].style.backgroundColor = 'red';
-                        document.querySelector('#feedback1').innerHTML = 'Incorrect'
+                        document.querySelector('#feedback1').innerHTML = 'Wrong... Try again!'
                     });
                 }
 
@@ -56,15 +59,30 @@
             <div class="section">
                 <h2>Part 1: Multiple Choice </h2>
                 <hr>
-                <h3>What is Thor's favourite toy?</h3>
 
+                <p id="feedback1"></p>
+
+                <h3>What is Thor's favourite toy?</h3>
                 <button class="wrong">Axe</button>
                 <button class="correct">Hammer</button>
                 <button class="wrong">Sword</button>
                 <button class="wrong">Stick</button>
                 <button class="wrong">Horn</button>
 
-                <p id="feedback1"></p>
+                <h3>Question 2</h3>
+                <button class="wrong">Axe</button>
+                <button class="wrong">Sword</button>
+                <button class="wrong">Stick</button>
+                <button class="correct">Hammer</button>
+                <button class="wrong">Horn</button>
+
+                <h3>Question 3</h3>
+                <button class="correct">Hammer</button>
+                <button class="wrong">Axe</button>
+                <button class="wrong">Sword</button>
+                <button class="wrong">Stick</button>
+                <button class="wrong">Horn</button>
+
             </div>
 
             <div class="section">
